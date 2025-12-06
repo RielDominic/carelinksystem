@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 export default function AdminDashboard({ user, onLogout }) {
   const [currentPage, setCurrentPage] = useState('dashboard');
   const stats = [
-    { title: "Total Seniors", value: "48", change: "+3 this month", color: "#2d9b6d" },
+    { title: "Total Seniors", value: "12", change: "+3 this month", color: "#2d9b6d" },
     { title: "Active Caregivers", value: "12", change: "All on duty", color: "#52b788" },
     { title: "Active Alerts", value: "7", change: "2 urgent", color: "#f0ad4e" },
   ];

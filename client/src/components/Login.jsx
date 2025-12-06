@@ -90,13 +90,13 @@ export default function Login({ onLogin } = {}) {
 
 					<form onSubmit={handleSubmit} style={{ display: "grid", gap: 12 }}>
 						<div>
-							<label htmlFor="email" style={{ display: "block", marginBottom: 6 }}>Email Address</label>
-							<input id="email" type="email" placeholder="caregiver@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required style={{ width: "100%", height: 48, borderRadius: 12, border: "1px solid #c7e5d8", padding: 10, background: "#f8fdfb" }} />
+							<label htmlFor="email" style={{ display: "block", marginBottom: 6, textAlign: "left" }}>Email Address</label>
+							<input id="email" type="email" placeholder="caregiver@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required style={{ width: "100%", height: 48, borderRadius: 12, border: "1px solid #c7e5d8", padding: "8px 12px", boxSizing: "border-box", background: "#f8fdfb" }} />
 						</div>
 
 						<div>
-							<label htmlFor="password" style={{ display: "block", marginBottom: 6 }}>Password</label>
-							<input id="password" type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ width: "100%", height: 48, borderRadius: 12, border: "1px solid #c7e5d8", padding: 10, background: "#f8fdfb" }} />
+							<label htmlFor="password" style={{ display: "block", marginBottom: 6, textAlign: "left" }}>Password</label>
+							<input id="password" type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} required style={{ width: "100%", height: 48, borderRadius: 12, border: "1px solid #c7e5d8", padding: "8px 12px", boxSizing: "border-box", background: "#f8fdfb" }} />
 						</div>
 
 						<div style={{ textAlign: "right" }}>
