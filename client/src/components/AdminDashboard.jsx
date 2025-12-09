@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
+import SeniorsListPage from './SeniorsListPage';
 
 export default function AdminDashboard({ user, onLogout }) {
   const [currentPage, setCurrentPage] = useState('dashboard');
@@ -48,8 +49,12 @@ export default function AdminDashboard({ user, onLogout }) {
       {/* Header */}
       <header style={{ background: "white", borderBottom: "1px solid #e6f7f0", padding: "24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
-          <h2 style={{ margin: 0, color: "#1a3a2e", fontSize: 28 }}>Admin Dashboard</h2>
-          <p style={{ margin: "8px 0 0", color: "#5f8074" }}>Complete overview of facility operations</p>
+          <h2 style={{ margin: 0, color: "#1a3a2e", fontSize: 28 }}>
+            {currentPage === 'dashboard' ? 'Admin Dashboard' : currentPage === 'seniors' ? 'Seniors Management' : 'Admin Portal'}
+          </h2>
+          <p style={{ margin: "8px 0 0", color: "#5f8074" }}>
+            {currentPage === 'dashboard' ? 'Complete overview of facility operations' : currentPage === 'seniors' ? 'Manage and monitor all seniors in your care' : 'CareLink Administration'}
+          </p>
         </div>
         <div>
           {user && <span style={{ marginRight: 16, color: "#5f8074" }}>Signed in as {user.name || user.email}</span>}
@@ -58,6 +63,8 @@ export default function AdminDashboard({ user, onLogout }) {
       </header>
 
       <main style={{ padding: 32 }}>
+        {currentPage === 'dashboard' && (
+          <>
         {/* Stats Cards */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, marginBottom: 24 }}>
           {stats.map((stat, idx) => (
@@ -142,6 +149,11 @@ export default function AdminDashboard({ user, onLogout }) {
             ))}
           </div>
         </div>
+          </>
+        )}
+        {currentPage === 'seniors' && (
+          <SeniorsListPage onViewProfile={() => setCurrentPage('senior-detail')} userType="admin" />
+        )}
       </main>
       </div>
     </div>
